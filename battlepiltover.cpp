@@ -2,24 +2,34 @@
 #include <vector>
 
 
-std::vector<vector<int>> permut(std::vector<int>,n){
+std::vector<vector<int>> permut(std::vector<int>array,int n){
 
-  std::vector<vector<int>> all_diferent;
-  std::vector<int> possiblevalues = {0,1};
+  std::vector<vector<int>> all_diferent,possiblevalues;
+  char torret = "T";
+  char blanks = ".";
+  
 
-  if(n==1)
-    return {{0},{1}};
+  if(n==1){
+    if (array[n-1]!=blanks)
+      return {array[n-1]};
+    else
+      return {array[n-1],torret};
+  }
   
   else{
-    for (int val : possiblevalues){
-      for(int vector<int> i : all_diferent){
-        i.push_back(val);
-        all_diferent.push_back(i);
+
+    possiblevalues = permut(array,n-1);
+    for(std::vector<int> i:possiblevalues){
+
+      i.push_back(array[n-1]);
+      all_diferent.push_back(i);
+      if (array[n-1] == blanks){
+        all_diferent.push_back(i.push_back(torret));
       }
     }
-    return all_diferent;
   }
 
+  return all_diferent;
 }
 
 int main(){
