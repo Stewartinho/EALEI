@@ -9,6 +9,7 @@ std::vector<vector<int>> permut(std::vector<int>,n){
 
   if(n==1)
     return {{0},{1}};
+  
   else{
     for (int val : possiblevalues){
       for(int vector<int> i : all_diferent){

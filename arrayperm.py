@@ -4,26 +4,27 @@ def permut(array,n):
     blanks = "."
 
     if n==1 :
+
         if array[n-1]!= blanks:
             return [array[n-1]]
         else:
-            return [array[n-1],[torret]]
+            return [[array[n-1]],[torret]]
         
 
     else:
 
-        thissol = list()
 
-        if array[n-1]!=blanks:
-            
+        possiblevals = permut(array,n-1)
+        for val in possiblevals:
+            newval = val + [array[n-1]]
+            all_diferent.append(newval)
+            if array[n-1] == blanks:
+                all_diferent.append(val + [torret])
 
-        
+
         return all_diferent
 
 
-
-A = [".",".","."]
-
-
+A = [".",".","#",".",".","."]
 A = permut(A,len(A))
 print(A)
